@@ -1,9 +1,12 @@
-import React from 'react'
+import SignUpForm from '@/components/SignUpForm'
 
-const page = () => {
+
+const SignUp = () => {
   return (
-    <div>page</div>
+    <div className='bg-teal-900 text-white'>
+      <SignUpForm />
+    </div>
   )
 }
 
-export default page
+export default SignUp

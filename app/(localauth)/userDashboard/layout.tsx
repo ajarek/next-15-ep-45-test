@@ -9,7 +9,7 @@ export default function UserDashboardLayout({
     <div className=' flex flex-row '>
       <div className='min-h-screen bg-cyan-700 px-5 py-10'>
         <h1 className='text-sky-300 font-bold text-2xl'>User Dashboard</h1>
-        <div className='flex flex-col gap-5 mt-10 '>
+        <div className='flex flex-col gap-5 mt-10 text-white '>
           <Link
             href='/userDashboard'
             className='border-b border-gray-300'
