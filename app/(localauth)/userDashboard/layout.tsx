@@ -1,5 +1,5 @@
 import Link from 'next/link'
-
+import Logout from '@/components/Logout'
 export default function UserDashboardLayout({
   children,
 }: {
@@ -28,6 +28,7 @@ export default function UserDashboardLayout({
           >
             My Booking
           </Link>
+          <Logout/>
         </div>
       </div>
       <div className='w-full p-10 bg-cyan-900 text-white'>{children}</div>

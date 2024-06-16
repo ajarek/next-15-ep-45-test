@@ -8,6 +8,7 @@ const MenuBar = () => {
       <Link className="border border-amber-400 px-4 py-1 rounded-sm hover:bg-orange-500 duration-500 " href='/signup'>SignUp</Link>
       <Link className="border border-amber-400 px-4 py-1 rounded-sm hover:bg-sky-500 duration-500" href='/login'>Login</Link>
       </div>
+      
     </div>
   )
 }

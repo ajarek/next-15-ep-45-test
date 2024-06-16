@@ -5,36 +5,82 @@ import { User, UserWithoutId } from './models'
 import { revalidatePath } from 'next/cache'
 import bcrypt from 'bcryptjs'
 import { redirect } from 'next/navigation'
+import { SignJWT, jwtVerify } from "jose";
+import { cookies } from "next/headers";
+import { NextRequest, NextResponse } from "next/server";
+
+const secretKey = "secret";
+const key = new TextEncoder().encode(secretKey);
+
+export async function encrypt(payload: any) {
+  return await new SignJWT(payload)
+    .setProtectedHeader({ alg: "HS256" })
+    .setIssuedAt()
+    .setExpirationTime("10 sec from now")
+    .sign(key);
+}
+
+export async function decrypt(input: string): Promise<any> {
+  const { payload } = await jwtVerify(input, key, {
+    algorithms: ["HS256"],
+  });
+  return payload;
+}
 
 export const getUser = async (formData: FormData) => {
+
   const email = formData.get('email')
   const password = formData.get('password')
-
+  
+    
+ 
   if (password !== null) {
+    
     const passwordValue = password.toString()
+   
     await connectToDb()
     const user = await User.findOne({ email: email })
-    const isPasswordCorrect = await bcrypt.compare(
-      passwordValue,
-      user.password
-    )
+   
     try {
       if (user) {
-       
+        const isPasswordCorrect = await bcrypt.compare(
+          passwordValue,
+          user.password
+        )
         if (isPasswordCorrect) {
-          console.log('password correct')
+          const expires = new Date(Date.now() + 3600 * 1000);
+          const session = await encrypt({ user, expires });
+          
+          // Save the session in a cookie
+          cookies().set("session", session, { expires, httpOnly: true });
+         
         }
         else {
           console.log('no password correct')
-      } 
-        
+         
       }
+        
+      }else{
+        console.log('no user')
+      }
+
     } catch (err) {
       console.log(err)
     }finally{
-      isPasswordCorrect?redirect(`/userDashboard?username=${user?.username}&img=${user.img}`):redirect('/signup')
+      const session = await  getSession()
+     session?redirect("/userDashboard"):redirect('/');
     }
   }
+}
+export async function logout() {
+  // Destroy the session
+  cookies().set("session", "", { expires: new Date(0) });
+}
+
+export async function getSession() {
+  const session = cookies().get("session")?.value;
+  if (!session) return null;
+  return await decrypt(session);
 }
 
 export const addUser = async (formData: UserWithoutId) => {
