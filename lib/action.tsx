@@ -1,13 +1,12 @@
 'use server'
 
 import connectToDb from './connectToDb'
-import { User, UserWithoutId } from './models'
+import { User, UserWithoutId, Reservation } from './models'
 import { revalidatePath } from 'next/cache'
 import bcrypt from 'bcryptjs'
 import { redirect } from 'next/navigation'
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
-import { NextRequest, NextResponse } from "next/server";
 
 const secretKey = "secret";
 const key = new TextEncoder().encode(secretKey);
@@ -93,7 +92,7 @@ export const addUser = async (formData: UserWithoutId) => {
       email,
       password: hashedPassword,
       img,
-      isAdmin,
+      isAdmin:false,
     })
     await newUser.save()
     console.log('saved' + newUser)
@@ -143,4 +142,28 @@ export const updateUser = async (formData: FormData) => {
   } finally {
     redirect('/dashboard/')
   }
+}
+export const addReservation=async (formData: FormData) => {
+  
+  const vehicle = formData.get('vehicle')
+  const from = formData.get('from')
+  const to = formData.get('to')
+  const withDriver = formData.get('drive')
+  const email = formData.get('email')
+  try{
+  await connectToDb()
+  const newReservation = new Reservation({
+    vehicle,
+    from,
+    to,
+    withDriver:withDriver==='drive'?true:false,
+    email:email
+  })
+  await newReservation.save()
+  console.log('saved' + newReservation)
+}catch (err) {
+  return { message: 'Failed to addReservation' }
+} finally {
+  redirect('/userDashboard/')
+}
 }

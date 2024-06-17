@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
 export type User = {
-  _id: string
+  _id: string|number
   username: string
   email: string
   password: string
@@ -20,5 +20,15 @@ const userSchema = new mongoose.Schema(
   },
   { timestamps: true }
 )
-
+const reservationSchema = new mongoose.Schema(
+  {
+    vehicle:{ type: String, required: true },
+    from: { type: Date, required: true },
+    to: { type: Date, required: true },
+    withDriver: { type: Boolean, default: false },
+    email: { type: String, required: true },
+  },
+  { timestamps: true }
+)
 export const User = mongoose.models?.User || mongoose.model('User', userSchema)
+export const Reservation = mongoose.models?.Reservation || mongoose.model('Reservation', reservationSchema)

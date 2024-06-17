@@ -26,7 +26,7 @@ export default function UserDashboardLayout({
             href='/'
             className='border-b border-gray-300'
           >
-            My Booking
+            Home
           </Link>
           <Logout/>
         </div>

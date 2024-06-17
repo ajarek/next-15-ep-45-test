@@ -3,6 +3,7 @@
 import { FaUserCircle } from 'react-icons/fa'
 import { getUser } from '@/lib/action'
 import { useRef } from 'react'
+import Link from 'next/link'
 
 const LoginForm = () => {
   const ref = useRef<HTMLFormElement>(null)
@@ -16,12 +17,13 @@ const LoginForm = () => {
         }}
         className='w-full px-10 py-5 bg-blue-500 rounded-sm'
       >
-        <h1 className='text-3xl font-semibold text-center'>User Login</h1>
-        <FaUserCircle
-          size={60}
-          className=' mx-auto my-5'
-        />
-
+        <Link href='/'>
+          <h1 className='text-3xl font-semibold text-center'>User Login</h1>
+          <FaUserCircle
+            size={60}
+            className=' mx-auto my-5'
+          />
+        </Link>
         <fieldset className='flex flex-col my-3'>
           <label htmlFor=''>Email</label>
           <input

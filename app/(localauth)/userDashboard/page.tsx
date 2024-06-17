@@ -1,10 +1,14 @@
 import { FaUserCircle } from 'react-icons/fa'
 import { getSession, getUser, logout } from '@/lib/action'
 import Image from 'next/image'
+import { redirect } from 'next/navigation'
+
 const UserDashboardPage = async () => {
   const session = await getSession()
-
-  console.log(session)
+  
+  if (!session) {
+    redirect('/')
+  }
   return (
     <div className='min-h-screen  flex flex-col items-center justify-center gap-10 '>
       <h1 className='w-full text-center text-3xl'>User Profile</h1>

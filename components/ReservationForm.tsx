@@ -1,10 +1,24 @@
-import { FaCarSide } from "react-icons/fa"
+'use client'
 
-const ReservationForm = () => {
+import { FaCarSide } from "react-icons/fa"
+import {useRef} from 'react'
+import { addReservation } from "@/lib/action"
+
+
+const ReservationForm = ({email}:{email:string}) => {
+  const ref = useRef<HTMLFormElement>(null)
+  
+
   return (
     <div className='max-w-xl mx-auto flex justify-center items-center min-h-screen'>
       <form
-        action=''
+          action={async (formData) => {
+            
+            await addReservation(formData)
+            ref.current?.reset()
+          
+        }
+      }
         className='w-full px-10 py-5 bg-blue-500 rounded-sm'
       >
         <h1 className='text-3xl font-semibold text-center'>Reserve Vehicle</h1>
@@ -28,7 +42,7 @@ const ReservationForm = () => {
           <label htmlFor=''>From(Date)</label>
           <input
             type='date'
-            name=''
+            name='from'
             className='text-gray-700 outline-none border border-amber-300 p-1 rounded-sm'
           />
         </fieldset>
@@ -36,7 +50,7 @@ const ReservationForm = () => {
           <label htmlFor=''>To(Date)</label>
           <input
             type='date'
-            name=''
+            name='to'
             className='text-gray-700 outline-none border border-amber-300 p-1 rounded-sm'
           />
         </fieldset>
@@ -67,6 +81,7 @@ const ReservationForm = () => {
           <label htmlFor=''>Total Amount to be Paid: 150 $</label>
           
         </fieldset>
+        <input type='hidden' name='email' value={email} />
         <fieldset className='flex flex-col my-3'>
           <button className='bg-orange-500 py-1 rounded-sm font-semibold text-xl'>
            Book
