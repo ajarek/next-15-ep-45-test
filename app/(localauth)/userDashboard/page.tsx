@@ -28,7 +28,6 @@ const UserDashboardPage = async () => {
               className='text-amber-500'
             />
           )}
-
         </div>
         <div className='w-full flex flex-col items-center gap-3  px-36 max-sm:px-2'>
           <h2 className='w-full text-2xl text-center font-semibold text-green-300 '>
@@ -36,8 +35,7 @@ const UserDashboardPage = async () => {
           </h2>
           <p>name: {session.user.username}</p>
           <p>email: {session.user.email}</p>
-          <p>registered at: {(session.user.createdAt).toString().slice(0, 10)}</p>
-          
+          <p>registered at: {session.user.createdAt.toString().slice(0, 10)}</p>
         </div>
       </div>
     </div>

@@ -26,7 +26,7 @@ export default function UserDashboardLayout({
             href='/userDashboard/my-reservations'
             className='border-b border-gray-300'
           >
-           My reservations
+            My reservations
           </Link>
           <Link
             href='/'
@@ -34,10 +34,12 @@ export default function UserDashboardLayout({
           >
             Home
           </Link>
-          <Logout/>
+          <Logout />
         </div>
       </div>
-      <div className='w-full p-10 max-sm:p-2 bg-cyan-900 text-white'>{children}</div>
+      <div className='w-full p-10 max-sm:p-2 bg-cyan-900 text-white'>
+        {children}
+      </div>
     </div>
   )
 }
