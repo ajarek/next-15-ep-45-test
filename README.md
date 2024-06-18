@@ -1,5 +1,10 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/create-next-app).
 
+![iPhone-12-PRO-MAX-localhost (3)](https://github.com/ajarek/next-15-ep-45-test/assets/61388692/e207bd5a-85a9-4bb9-bf37-eb8db170b7f4)
+![iPhone-12-PRO-MAX-localhost (2)](https://github.com/ajarek/next-15-ep-45-test/assets/61388692/234cdcc5-6d03-4048-a73f-d12749a5e262)
+![iPhone-12-PRO-MAX-localhost (1)](https://github.com/ajarek/next-15-ep-45-test/assets/61388692/ec80502c-d6bf-42bd-ae66-4cfd8f2944b5)
+![iPhone-12-PRO-MAX-localhost](https://github.com/ajarek/next-15-ep-45-test/assets/61388692/fbc442bf-3448-45d0-99a6-afa9068ac94c)
+
 ## Getting Started
 
 First, run the development server:
