@@ -23,6 +23,12 @@ export default function UserDashboardLayout({
             Reserve
           </Link>
           <Link
+            href='/userDashboard/my-reservations'
+            className='border-b border-gray-300'
+          >
+           My reservations
+          </Link>
+          <Link
             href='/'
             className='border-b border-gray-300'
           >
