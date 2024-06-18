@@ -1,6 +1,8 @@
 import { RiMotorbikeFill } from "react-icons/ri";
 import { FaCarSide, FaBusAlt } from "react-icons/fa"
 import { BsBicycle } from "react-icons/bs"
+import { FaRegChartBar } from "react-icons/fa";
+
 const DashBoard = () => {
   return (
     <div className='w-full max-w-4xl flex flex-col  mx-auto my-10 '>
@@ -10,22 +12,22 @@ const DashBoard = () => {
         <div className='flex flex-col shadow-md shadow-gray-300 items-center px-8 py-2 gap-4 w-40 rounded-lg'>
           <h1 className='text-2xl font-semibold'>Bike</h1>
           <RiMotorbikeFill size={60} className="text-orange-500" />
-          <div>Chart</div>
+          <div><FaRegChartBar size={60} className='text-white'/></div>
         </div>
         <div  className='flex flex-col shadow-md shadow-gray-300 items-center px-8 py-2 gap-4 w-40 rounded-lg'>
           <h1 className='text-2xl font-semibold'>Car</h1>
           <FaCarSide size={60} className="text-orange-500"/>
-          <div>Chart</div>
+          <div><FaRegChartBar size={60} className='text-white'/></div>
         </div>
         <div  className='flex flex-col shadow-md shadow-gray-300 items-center px-8 py-2 gap-4 w-40 rounded-lg'>
         <h1 className='text-2xl font-semibold'>Bus</h1>
         <FaBusAlt size={60} className="text-orange-500"/>
-          <div>Chart</div>
+          <div><FaRegChartBar size={60} className='text-white'/></div>
         </div>
         <div  className='flex flex-col shadow-md shadow-gray-300 items-center px-8 py-2 gap-4 w-40 rounded-lg'>
         <h1 className='text-2xl font-semibold'>Bicycle</h1>
         <BsBicycle size={60} className="text-orange-500" />
-          <div>Chart</div>
+          <div><FaRegChartBar size={60} className='text-white'/></div>
         </div>
       </div>
     </div>

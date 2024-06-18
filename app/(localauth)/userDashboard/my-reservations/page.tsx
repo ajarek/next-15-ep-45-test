@@ -16,7 +16,7 @@ const MyReservation = async () => {
   return (
     <div className='w-full flex flex-col justify-center items-center'>
       {reservations.map((reservation: any) => (
-        <div key={reservation._id} className='w-1/3 border border-gray-300 p-3 m-3' >
+        <div key={reservation._id} className='w-1/3 max-sm:w-full border border-gray-300 p-3 m-3' >
           <p>{reservation.email}</p>
           <p>{reservation.vehicle}</p>
           <p>from: {(reservation.from).toLocaleDateString()}</p>

@@ -10,7 +10,7 @@ const ReservationForm = ({email}:{email:string}) => {
   
 
   return (
-    <div className='max-w-xl mx-auto flex justify-center items-center min-h-screen'>
+    <div className=' mx-auto flex justify-center items-center min-h-screen'>
       <form
           action={async (formData) => {
             
@@ -19,7 +19,7 @@ const ReservationForm = ({email}:{email:string}) => {
           
         }
       }
-        className='w-full px-10 py-5 bg-blue-500 rounded-sm'
+        className='w-full px-10 max-sm:px-10 py-5 bg-blue-500 rounded-sm'
       >
         <h1 className='text-3xl font-semibold text-center'>Reserve Vehicle</h1>
         <FaCarSide size={60} className="text-orange-500 mx-auto mt-2"/>

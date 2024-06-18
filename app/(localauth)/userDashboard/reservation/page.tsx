@@ -4,7 +4,7 @@ import { getSession, getUser, logout } from '@/lib/action'
 const Reservation =async () => {
   const session = await getSession()
   return (
-    <div className='min-h-screen  flex flex-col items-center justify-center '>
+    <div className='min-h-screen  w-full flex flex-col items-center justify-center  '>
       <ReservationForm email={session?.user?.email}/>
     </div>
   )
